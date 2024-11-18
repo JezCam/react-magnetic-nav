@@ -25,26 +25,15 @@ export default function MagneticNavImplementation() {
 }
 `
 
-export const componentCode = `import React from 'react'
+export const componentCode = `import React from "react";
 
 export default function MagneticNav(props: {
-    links: { name: string; url: string }[]
-    color?: string
-    hoverBackgroundColor?: string
-    hoverColor?: string
+    links: { name: string; url: string }[];
 }) {
     return (
         <nav>
             <ul
-                style={
-                    {
-                        '--color': props.color ?? 'rgba(0, 0, 0, .4)',
-                        '--hover-background-color':
-                            props.hoverBackgroundColor ?? 'rgba(0, 0, 0, .15)',
-                        '--hover-color': props.hoverColor ?? 'rgba(0, 0, 0, 1)',
-                    } as React.CSSProperties
-                }
-                className={\`flex text-[--color] transition-all before:pointer-events-none before:fixed before:left-[anchor(--anchor_left)] before:top-[anchor(--anchor_top)] before:z-[-1] before:h-[anchor-size(--anchor_height)] before:w-[anchor-size(--anchor_width)] before:rounded-md before:bg-[--hover-background-color] before:opacity-[var(--intent,0)] before:transition-all before:content-[""] [&:has(a:is(:focus-visible,:hover))]:[--intent:1] [&:has(a:target:is(:focus-visible,:hover))::after]:text-[--hoverColor]\`}
+                className={\`flex text-primary/70 transition-all before:pointer-events-none before:fixed before:left-[anchor(--anchor_left)] before:top-[anchor(--anchor_top)] before:z-[-1] before:h-[anchor-size(--anchor_height)] before:w-[anchor-size(--anchor_width)] before:rounded-md before:bg-primary/10 before:opacity-[var(--intent,0)] before:transition-all before:content-[""] [&:has(a:is(:focus-visible,:hover))]:[--intent:1] [&:has(a:target:is(:focus-visible,:hover))::after]:text-primary\`}
             >
                 {props.links.map((link, index) => (
                     <li
@@ -53,7 +42,7 @@ export default function MagneticNav(props: {
                     >
                         <a
                             href={link.url}
-                            className="inline-block h-full w-full cursor-pointer px-[1.25rem] py-[.5rem] [&:is(:focus-visible,:hover)]:text-[--hover-color]"
+                            className="inline-block h-full w-full cursor-pointer px-[1.25rem] py-[.5rem] [&:is(:focus-visible,:hover)]:text-primary"
                         >
                             {link.name}
                         </a>
@@ -61,6 +50,7 @@ export default function MagneticNav(props: {
                 ))}
             </ul>
         </nav>
-    )
+    );
 }
+
 `;

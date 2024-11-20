@@ -19,7 +19,5 @@ export default function MagneticNavImplementation() {
         ],
     }
 
-    return (
-        <MagneticNav links={navData.links} />
-    )
+    return <MagneticNav links={navData.links} />
 }
